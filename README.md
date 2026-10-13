@@ -4,7 +4,7 @@ LevelUp is a small gaming website I built for my Dynamic Websites and Applicatio
 
 ## Pages
 
-- `home.html`: a hero heading, a carousel of highlights, a stats row and a few feature cards
+- `index.html`: a hero heading, a carousel of highlights, a stats row and a few feature cards
 - `games.html`: the game library with a category filter, cover images and a details modal
 - `register.html`: the tournament registration form
 
@@ -14,7 +14,7 @@ Every page uses the same navbar, footer, colours and back to top button.
 
 ```
 LevelUp/
-├── home.html
+├── index.html
 ├── games.html
 ├── register.html
 ├── css/styles.css
@@ -23,15 +23,15 @@ LevelUp/
 └── README.md
 ```
 
-The `images` folder holds the three carousel photos and the six game covers.
+The `images` folder holds the three carousel photos and the six game covers. Every file has comments for each section, so the code is easy to follow: HTML by page part, CSS by section, JavaScript by function.
 
 ## Design
 
-I went with a dark navy background and blue and cyan accents, with rounded cards and a sticky navbar. The look comes from an earlier project of mine, simplified. There are no hover effects or animations, so buttons and cards look the same whether or not the mouse is on them. Keyboard focus always shows a visible outline.
+I went with a near-black background and a single amber accent, with square corners, flat colours and a sticky navbar. Headings use Barlow Condensed in uppercase and body text uses Barlow, both from Google Fonts. There are no gradients, glows or animations. Buttons only change colour slightly on hover, and keyboard focus always shows a visible outline. The colours are CSS variables at the top of `styles.css`, so they are easy to change.
 
 ## Built with
 
-- HTML5 and CSS3 (`css/styles.css`)
+- HTML5 and CSS3 (`css/styles.css`), with the Barlow and Barlow Condensed fonts from Google Fonts
 - Bootstrap 5.3.3 from the jsDelivr CDN, using its dark colour mode
 - JavaScript (`js/app.js`)
 - jQuery 3.7.1 from the jQuery CDN
@@ -74,11 +74,11 @@ The registration dropdown has one tournament per game:
 
 ## Accessibility and responsiveness
 
-Each page has one `h1` and a logical heading order. Every form control has a label and every image has `alt` text. Icon only buttons have an `aria-label`, the filter buttons use `aria-pressed`, and the result count uses `aria-live`. The Bootstrap grid keeps the pages usable on phones, tablets and desktops, and the carousel caption moves under the picture on small screens.
+Each page has one `h1` and a logical heading order. Every form control has a label and every image has `alt` text. Icon only buttons have an `aria-label`, the filter buttons use `aria-pressed`, and the result count uses `aria-live`. The Bootstrap grid keeps the pages usable on phones, tablets and desktops, and the carousel caption moves under the picture on small screens, and the game covers are never cropped because the game name is part of the picture.
 
 ## Running it
 
-Open `home.html` in a browser. You need an internet connection because Bootstrap and jQuery load from CDNs.
+Open `index.html` in a browser. You need an internet connection because Bootstrap and jQuery load from CDNs.
 
 ## Image credits
 

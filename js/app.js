@@ -1,4 +1,5 @@
-// LevelUp: simple JavaScript for the Games and Register pages
+// LevelUp: JavaScript for all pages.
+// Order: game data, games page, register page, shared features, start-up.
 
 // ----- Data: an array of objects, one object per game -----
 const games = [
@@ -10,7 +11,8 @@ const games = [
   { title: "Brain Blocks", category: "Puzzle", rating: 4.1, price: 900, description: "Slide the blocks and solve one hundred puzzles.", image: "images/brain-blocks.jpg" }
 ];
 
-// ----- Show the games that match a category -----
+// ----- Games page: build the cards -----
+// Loops through the games array and writes one card for each game in the chosen category
 function showGames(category) {
   const grid = document.getElementById("gameGrid");
   let html = "";
@@ -41,8 +43,9 @@ function showGames(category) {
   document.getElementById("gameCount").textContent = "Showing " + count + " game(s) in " + category + ".";
 }
 
-// ----- Games page -----
+// ----- Games page: filter buttons and details popup -----
 function setupGamesPage() {
+  // Start by showing every game
   showGames("All");
 
   // Filter buttons: change which games are visible
@@ -77,7 +80,7 @@ function setupGamesPage() {
   });
 }
 
-// ----- Register page -----
+// ----- Register page: form validation -----
 
 // Marks one field as valid or invalid. Returns true when the field is valid.
 function checkField(id, isValid) {
@@ -90,6 +93,7 @@ function checkField(id, isValid) {
   return isValid;
 }
 
+// Runs when the form is submitted: reads, checks and shows the result
 function setupRegisterPage() {
   const form = document.getElementById("registerForm");
 
@@ -142,7 +146,8 @@ function setupCommon() {
   });
 }
 
-// ----- Start -----
+// ----- Start: runs once the page has loaded -----
+// Each page only gets the code it needs (found by checking for its own element)
 document.addEventListener("DOMContentLoaded", function () {
   setupCommon();
   if (document.getElementById("gameGrid")) {
