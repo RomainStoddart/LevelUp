@@ -86,7 +86,8 @@ select:focus-visible {
 }
 
 .btn-outline-light {
-  border-color: #666;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
 /* ---------- Hero (home page) and page titles (games and register) ---------- */
@@ -148,11 +149,16 @@ select:focus-visible {
 
 .carousel-caption {
   background: rgba(0, 0, 0, 0.8);
-  bottom: 1rem;
+  bottom: 3rem; /* leaves room for the dots below the caption */
   padding: 0.75rem 1rem;
 }
 
 /* Bootstrap's dark mode turns the arrows black, so keep them white */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 1;
+}
+
 [data-bs-theme="dark"] .carousel .carousel-control-prev-icon,
 [data-bs-theme="dark"] .carousel .carousel-control-next-icon {
   filter: none;
@@ -301,5 +307,10 @@ select:focus-visible {
 @media (max-width: 575.98px) {
   .carousel-caption {
     position: static;
+  }
+
+  /* The dots would sit on top of the caption button, so hide them (the arrows still work) */
+  .carousel-indicators {
+    display: none;
   }
 }
