@@ -3,12 +3,12 @@
 
 // ----- Data: an array of objects, one object per game -----
 const games = [
-  { title: "Neon Drift", category: "Racing", rating: 4.7, price: 0, description: "A fast street racer with a pumping soundtrack.", image: "images/neon-drift.jpg" },
-  { title: "Castle Siege", category: "Action", rating: 4.4, price: 2500, description: "Defend your castle against waves of enemies.", image: "images/castle-siege.jpg" },
-  { title: "Pixel Dominoes", category: "Puzzle", rating: 4.0, price: 0, description: "The classic yard game with online lobbies.", image: "images/pixel-dominoes.jpg" },
-  { title: "Star Striker", category: "Action", rating: 4.3, price: 0, description: "A fast team shooter set among the stars.", image: "images/star-striker.jpg" },
-  { title: "Cricket Clash", category: "Sports", rating: 4.6, price: 2000, description: "Lead your favourite side to glory.", image: "images/cricket-clash.jpg" },
-  { title: "Brain Blocks", category: "Puzzle", rating: 4.1, price: 900, description: "Slide the blocks and solve one hundred puzzles.", image: "images/brain-blocks.jpg" }
+  { title: "Neon Drift", category: "Racing", rating: 4.7, description: "A fast street racer with a pumping soundtrack.", image: "images/neon-drift.jpg" },
+  { title: "Castle Siege", category: "Action", rating: 4.4, description: "Defend your castle against waves of enemies.", image: "images/castle-siege.jpg" },
+  { title: "Pixel Dominoes", category: "Puzzle", rating: 4.0, description: "The classic yard game with online lobbies.", image: "images/pixel-dominoes.jpg" },
+  { title: "Star Striker", category: "Action", rating: 4.3, description: "A fast team shooter set among the stars.", image: "images/star-striker.jpg" },
+  { title: "Cricket Clash", category: "Sports", rating: 4.6, description: "Lead your favourite side to glory.", image: "images/cricket-clash.jpg" },
+  { title: "Brain Blocks", category: "Puzzle", rating: 4.1, description: "Slide the blocks and solve one hundred puzzles.", image: "images/brain-blocks.jpg" }
 ];
 
 // ----- Games page: build the cards -----
@@ -22,17 +22,12 @@ function showGames(category) {
     const game = games[i];
 
     if (category === "All" || game.category === category) {
-      let priceText = "J$" + game.price;
-      if (game.price === 0) {
-        priceText = "Free";
-      }
-
       html += '<div class="col-12 col-sm-6 col-lg-4">' +
         '<article class="card h-100">' +
         '<img src="' + game.image + '" class="card-img-top game-cover" alt="Cover art for ' + game.title + '">' +
         '<div class="card-body text-center">' +
         '<h2 class="h5 card-title">' + game.title + '</h2>' +
-        '<p class="mb-1">' + game.category + ' | ' + priceText + '</p>' +
+        '<p class="mb-1">' + game.category + '</p>' +
         '<button type="button" class="btn btn-main details-btn" data-index="' + i + '">View details</button>' +
         '</div></article></div>';
       count++;
@@ -73,7 +68,6 @@ function setupGamesPage() {
     $("#gameModalDescription").text(game.description);
     $("#gameModalCategory").text(game.category);
     $("#gameModalRating").text(game.rating);
-    $("#gameModalPrice").text(game.price === 0 ? "Free" : "J$" + game.price);
 
     const modal = new bootstrap.Modal(document.getElementById("gameModal"));
     modal.show();

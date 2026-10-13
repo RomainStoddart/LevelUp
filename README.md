@@ -46,9 +46,9 @@ I went with a near-black background and a single amber accent, with square corne
 
 ## How it works
 
-**Category filter.** The buttons on the Games page (All, Action, Racing, Puzzle, Sports) change which games are shown and update the count. The games live in a `const` array of objects, each with a title, category, rating, price, description and image. A `for` loop in `showGames` builds the cards, and `if`/`else` handles the filter and the price text.
+**Category filter.** The buttons on the Games page (All, Action, Racing, Puzzle, Sports) change which games are shown and update the count. The games live in a `const` array of objects, each with a title, category, rating, description and image. A `for` loop in `showGames` builds the cards, and an `if` handles the filter.
 
-**Details modal.** "View details" fills the modal with the game's cover, description, category, rating and price. The cards are created by JavaScript after the page loads, so I used a delegated jQuery handler, `$("#gameGrid").on("click", ".details-btn", ...)`. It reads the game's position with `$(this).data("index")` and sets the modal content with `.text()` and `.attr()`.
+**Details modal.** "View details" fills the modal with the game's cover, description, category and rating. The cards are created by JavaScript after the page loads, so I used a delegated jQuery handler, `$("#gameGrid").on("click", ".details-btn", ...)`. It reads the game's position with `$(this).data("index")` and sets the modal content with `.text()` and `.attr()`.
 
 **Registration form.** The form uses `novalidate` and a `submit` listener. It checks that:
 
